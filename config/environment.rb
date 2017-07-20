@@ -8,8 +8,9 @@ Bundler.require(:default)
 Bundler.require(ENV['RACK_ENV'].to_sym) # load all the environment specific gems
 
 ##### ENV VARS
-require 'dotenv'
-Dotenv.load
+if ENV['RACK_ENV'] != 'production'
+  Dotenv.load
+end
 
 ##### APP
 
